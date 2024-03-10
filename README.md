@@ -11,6 +11,8 @@ Esse sistema fornece uma interface para que usuários consigam cadastrar e geren
 
 - Bruno Lima de Oliveira - FULL
 - Guilherme Drumond Rosa - FULL
+- Ana Luisa Mendes dos Santos - FULL
+- Maria Clara de Arruda Ferreira - FULL
 
 # Tecnologias principais
 
