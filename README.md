@@ -63,15 +63,17 @@ Esse sistema fornece uma interface para que usuários consigam cadastrar e geren
 - Criar a tela de cadastro [Ana]
 - Criar a tela de edição [Maria] 
 - Criar a tela de deletar [Ana]
+- Criar a tela de visualização [Maria]
   
 4- Como dono de um estoque, eu gostaria de cadastrar, editar, visualizar e deletar um produto
 - Criar lógica de cadastrar um produto [Guilherme]
 - Criar lógica de editar um produto [Bruno]
 - Criar lógica de deletar um produto [Guilherme]
 - Criar lógica de visualizar um produto [Bruno]
-- Criar a tela de cadastro [Maria] 
+- Criar a tela de cadastro [Maria]
 - Criar a tela de edição [Ana]
 - Criar a tela de deletar [Maria]
+- Criar a tela de visualização [Ana] 
   
 5- Como dono de um estoque, eu gostaria de convidar e remover usuários do meu estoque
 - Criar lógica de convite de usuários [Guilherme]
