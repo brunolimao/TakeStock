@@ -40,7 +40,7 @@ Esse sistema fornece uma interface para que usuários consigam cadastrar e geren
 - Como usuário, eu gostaria de avaliar produtos do estoque
 - Como usuário, eu gostaria de favoritar os produtos do estoque
 
-#Backlog da Sprint
+# Backlog da Sprint
 
 1- Como usuário, eu gostaria de me cadastrar
 - Instalar MySQL e criar primeiras tabelas [Bruno]
