@@ -9,10 +9,10 @@ Esse sistema fornece uma interface para que usuários consigam cadastrar e geren
 
 # Membros da equipe e papel
 
-- Bruno Lima de Oliveira - FULL
-- Guilherme Drumond Rosa - FULL
-- Ana Luisa Mendes dos Santos - FULL
-- Maria Clara de Arruda Ferreira - FULL
+- Bruno Lima de Oliveira - Back
+- Guilherme Drumond Rosa - Back
+- Ana Luisa Mendes dos Santos - Front
+- Maria Clara de Arruda Ferreira - Front
 
 # Tecnologias principais
 
