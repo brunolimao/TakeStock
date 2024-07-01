@@ -5,6 +5,12 @@ const User = sequelize.define("Users", {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
+  },
+
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
 
   password: {
@@ -13,7 +19,6 @@ const User = sequelize.define("Users", {
   },
 
 }, { timestamps: true });
-
 
 User.sync({alter: false, force: false})
 .then(() => {
