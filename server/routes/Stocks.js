@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner} = require('../../adaptors/stock/Stocks')
+const {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner} = require('../adaptors/Stocks')
 
 router.get('/' , async function(req , res , next){
   try{

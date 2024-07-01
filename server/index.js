@@ -22,6 +22,7 @@ app.use(express.urlencoded({
 }));
 
 app.use(cors({credentials: true, origin: '*'}));
+
 // Connection to the database
 const sequelize = require("./models/index.js")
 sequelize
@@ -30,16 +31,16 @@ sequelize
  .catch((err) => console.error("Unable to connect to the database:", err));
 
 // Routers
-const stockRouter = require('./routes/stock/Stocks');
+const stockRouter = require('./routes/Stocks.js');
 app.use("/stocks", stockRouter);
 
-const productRouter = require('./routes/product/Products');
+const productRouter = require('./routes/Products');
 app.use("/products", productRouter);
 
-const inviteRouter = require('./routes/invite/Invites');
+const inviteRouter = require('./routes/Invites');
 app.use("/invites", inviteRouter);
 
-const userRouter = require('./routes/user/Users');
+const userRouter = require('./routes/Users');
 app.use("/users", userRouter);
 
 app.listen(3001, () => {

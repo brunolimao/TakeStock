@@ -1,4 +1,4 @@
-const Product = require("../../models/Product")
+const Product = require("../models/Product")
 
 async function get_product(req, res, next, id_product){
   const product = await Product.findByPk(id_product)

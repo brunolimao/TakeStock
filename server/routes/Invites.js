@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {reject_invite} = require('../../adaptors/invite/Invites')
+const {reject_invite} = require('../adaptors/Invites')
 
 router.delete('/reject' , async function(req , res , next){
   try{

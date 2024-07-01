@@ -1,7 +1,7 @@
-const Stock = require("../../models/Stock")
-const Product = require("../../models/Product")
-const User_Stock = require("../../models/UserStock")
-const User = require("../../models/User")
+const Stock = require("../models/Stock")
+const Product = require("../models/Product")
+const User_Stock = require("../models/UserStock")
+const User = require("../models/User")
 
 async function get_stock(req, res, next, id_stock){
   const stock = await Stock.findByPk(id_stock)
