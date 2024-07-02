@@ -3,13 +3,11 @@ const jwt = require("jsonwebtoken")
 
 const hashAcessSecretKey = '67c0fbaeee22ae50902039bd1523c094dc27b4bce6ef664a939ac3bb2dbc780d'
 
-async function create_user(req, res, next, user){
+async function create_user(user){
   await User.create(user)
 }
 
-async function get_perfil(req, res, next){
-  //const id_user = req.id
-  const id_user = 1
+async function get_perfil(id_user){
   const user = await User.findOne({attributes: ['name', 'email'], where:{id:id_user}})
   return user
 }
