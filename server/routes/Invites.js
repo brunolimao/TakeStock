@@ -34,7 +34,7 @@ router.delete('/reject', ensureAuth, async function(req , res , next){
   try{
     const id_stock = req.body.id_stock
     const id_user = req.body.id_user
-    await reject_invite(req, res, next, id_stock, id_user)
+    await reject_invite(id_stock, id_user)
     res.sendStatus(200)
   } catch(error){
     res.send("Erro!")

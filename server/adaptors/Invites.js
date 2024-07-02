@@ -12,7 +12,7 @@ async function accept_invite(UserId, StockId) {
   await Invite.destroy({where:{UserId, StockId}})
 }
 
-async function reject_invite(req, res, next, id_stock, id_user){
+async function reject_invite(id_stock, id_user){
   await Invite.destroy({where:{StockId: id_stock, UserId: id_user}})
 }
 

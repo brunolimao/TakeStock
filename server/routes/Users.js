@@ -10,7 +10,7 @@ router.post('/register', async function(req , res , next){
     const userData = req.body;
     const saltRounds = 10;
     userData.password = await bcrypt.hash(userData.password, saltRounds)
-    await create_user(req, res, next, userData)
+    await create_user(userData)
     res.sendStatus(200)
   } catch(error){
     res.send('Erro!')
@@ -19,7 +19,8 @@ router.post('/register', async function(req , res , next){
 
 router.get('/perfil', ensureAuth, async function(req , res , next){
   try{
-    const user = await get_perfil(req, res, next)
+    const id_user = req.user.id
+    const user = await get_perfil(id_user)
     res.send({user:user})
   } catch(error){
     res.send('Erro!')
