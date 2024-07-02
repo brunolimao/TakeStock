@@ -3,6 +3,14 @@ const Product = require("../models/Product")
 const User_Stock = require("../models/UserStock")
 const User = require("../models/User")
 
+async function create_stock(stock) {
+  await Stock.create(stock)
+}
+
+async function delete_stock(id) {
+  await Stock.destroy({where:{id}})
+}
+
 async function get_stock(req, res, next, id_stock){
   const stock = await Stock.findByPk(id_stock)
   return stock
@@ -15,10 +23,11 @@ async function get_stock_owner(req, res, next, id_stock){
   return user
 }
 
-async function get_products_from_stock(req, res, next, id_stock){
-  const products = await Product.findAll({where:{
-    StockId: id_stock
-  }})
+async function get_products_from_stock(id_stock){
+  const products = await Product.findAll({
+    raw: true,
+    where:{StockId: id_stock}
+  })
   return products
 }
 
@@ -41,4 +50,4 @@ async function delete_user_from_stock(req, res, next, id_stock, id_user){
   await User_Stock.destroy({where:{StockId: id_stock, UserId:id_user}})
 }
 
-module.exports = {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner}
+module.exports = {create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner}

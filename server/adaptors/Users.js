@@ -14,6 +14,15 @@ async function get_perfil(req, res, next){
   return user
 }
 
+async function getIdByEmail(email) {
+  const userId = await User.findOne({
+    attributes: ['id'],
+    raw: true,
+    where: {email}
+  })
+  return userId
+}
+
 async function findByEmail(email) {
   const user = await User.findOne({
     where: {email}
@@ -31,4 +40,4 @@ function verifyToken(token) {
   return user
 }
 
-module.exports = {create_user, get_perfil, findByEmail, signToken, verifyToken}
+module.exports = {create_user, get_perfil, findByEmail, signToken, verifyToken, getIdByEmail}

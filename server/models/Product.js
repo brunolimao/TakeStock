@@ -30,7 +30,9 @@ const Product = sequelize.define("Products", {
 
 }, { timestamps: true });
 
-Stock.hasMany(Product)
+Stock.hasMany(Product, {
+  onDelete: 'CASCADE',
+})
 Product.belongsTo(Stock)
 
 Product.sync({alter: false, force: false})
