@@ -26,4 +26,9 @@ function signToken(payload, expiration) {
   return token
 }
 
-module.exports = {create_user, get_perfil, findByEmail, signToken}
+function verifyToken(token) {
+  const user = jwt.verify(token, hashAcessSecretKey)
+  return user
+}
+
+module.exports = {create_user, get_perfil, findByEmail, signToken, verifyToken}

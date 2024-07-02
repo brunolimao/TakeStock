@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cookies = require("cookie-parser")
 const cors = require('cors')
 
 app.use(express.json());
@@ -29,6 +30,8 @@ sequelize
  .authenticate()
  .then(() => console.log("Connection has been established successfully."))
  .catch((err) => console.error("Unable to connect to the database:", err));
+
+ app.use(cookies());
 
 // Routers
 const stockRouter = require('./routes/Stocks.js');

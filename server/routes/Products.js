@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {get_product, update_product} = require('../adaptors/Products')
+const {get_product, update_product} = require('../adaptors/Products');
+const { ensureAuth } = require('../middlewares/auth');
 
-router.get('/' , async function(req , res , next){
+router.get('/', ensureAuth, async function(req , res , next){
   try{
     const id_product = req.body.id
     const product = await get_product(req, res, next, id_product)
@@ -12,7 +13,7 @@ router.get('/' , async function(req , res , next){
   }
 });
 
-router.post('/update' , async function(req , res , next){
+router.post('/update', ensureAuth, async function(req , res , next){
   try{
     const product = req.body
     await update_product(req, res, next, product)

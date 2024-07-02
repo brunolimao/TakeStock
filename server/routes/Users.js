@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt')
 const {create_user, get_perfil, findByEmail, signToken} = require('../adaptors/Users');
+const { ensureAuth } = require('../middlewares/auth');
 const router = express.Router();
 
 router.post('/register', async function(req , res , next){
@@ -16,7 +17,7 @@ router.post('/register', async function(req , res , next){
   }
 });
 
-router.get('/perfil' , async function(req , res , next){
+router.get('/perfil', ensureAuth, async function(req , res , next){
   try{
     const user = await get_perfil(req, res, next)
     res.send({user:user})

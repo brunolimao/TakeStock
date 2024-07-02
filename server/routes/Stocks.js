@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner} = require('../adaptors/Stocks')
+const {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner} = require('../adaptors/Stocks');
+const { ensureAuth } = require('../middlewares/auth');
 
-router.get('/' , async function(req , res , next){
+router.get('/', ensureAuth, async function(req , res , next){
   try{
     const id_stock = req.body.id
     const stock = await get_stock(req, res, next, id_stock)
@@ -15,7 +16,7 @@ router.get('/' , async function(req , res , next){
   }
 });
 
-router.post('/update' , async function(req , res , next){
+router.post('/update', ensureAuth, async function(req , res , next){
   try{
     const stock = req.body
     await update_stock(req, res, next, stock)
@@ -25,7 +26,7 @@ router.post('/update' , async function(req , res , next){
   }
 });
 
-router.get('/users' , async function(req , res , next){
+router.get('/users', ensureAuth, async function(req , res , next){
   try{
     const id_stock = req.body.id
     const users = await get_users_from_stock(req, res, next, id_stock)
@@ -35,7 +36,7 @@ router.get('/users' , async function(req , res , next){
   }
 });
 
-router.delete('/user' , async function(req , res , next){
+router.delete('/user', ensureAuth, async function(req , res , next){
   try{
     const id_stock = req.body.id_stock
     const id_user = req.body.id_user
