@@ -55,4 +55,9 @@ router.post('/login', async function(req, res, next) {
   }
 })
 
+router.get('/logout', function(req,res,nex){
+  res.clearCookie("token");
+  res.send('Deslogado com sucesso.');
+});
+
 module.exports = router;
