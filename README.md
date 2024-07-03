@@ -96,3 +96,41 @@ Esse sistema fornece uma interface para que usuários consigam cadastrar e geren
 # Arquitetura Hexagonal
 
 Adotamos uma arquitetura hexagonal para que o domínio fique limpo de tecnologia, ou seja, ele não conhece os detalhes de implementação do banco e coisas do tipo. Para isso, criamos um diretório adaptors que contém os adaptadores de todas as entidades do sistema. Dessa forma, todas as rotas consomem as funções de adaptors para realizarem suas funcionalidades
+
+# Backlog do Sprint (nova versão)
+
+1- Como usuário, eu gostaria de me cadastrar
+- Instalar MySQL e criar primeiras tabelas [Bruno]
+- Instalar Node.js, Express, Sequelize [Guilherme]
+- Criar lógica de cadastrar [Bruno]
+
+2- Como usuário, eu gostaria de fazer login
+- Criar lógica de login [Guilherme]
+- Criar lógica de perfil [Bruno]
+
+3- Como usuário, eu gostaria de cadastrar, editar, deletar e visualizar um estoque
+- Criar lógica de cadastrar um estoque [Guilherme]
+- Criar lógica de editar um estoque [Bruno]
+- Criar lógica de deletar um estoque [Guilherme]
+- Criar lógica de visualizar um estoque [Bruno]
+
+4- Como dono de um estoque, eu gostaria de cadastrar, editar, visualizar e deletar um produto
+- Criar lógica de cadastrar um produto [Guilherme]
+- Criar lógica de editar um produto [Bruno]
+- Criar lógica de deletar um produto [Guilherme]
+- Criar lógica de visualizar um produto [Bruno]
+
+5- Como dono de um estoque, eu gostaria de convidar e remover usuários do meu estoque
+- Criar lógica de convite de usuários por email [Guilherme]
+- Criar lógica de remover usuários [Bruno]
+
+6- Como usuário, eu gostaria de aceitar ou recusar convites para um estoque
+- Criar lógica de aceitar convites para um estoque [Guilherme]
+- Criar lógica de recusar convites para um estoque [Bruno]
+
+7- Como usuário, eu gostaria de filtrar os produtos de um estoque por categoria
+- Criar lógica de filtro por categoria [Guilherme]
+
+8- Como usuário, eu gostaria de visualizar análises/estatísticas do estoque
+- Criar lógica de análises/estatísticas do estoque [Bruno]
+  
