@@ -92,3 +92,7 @@ Esse sistema fornece uma interface para que usuários consigam cadastrar e geren
 8- Como usuário, eu gostaria de visualizar análises/estatísticas do estoque
 - Criar lógica de análises/estatísticas do estoque [Bruno]
 - Criar a tela de análises/estatísticas do estoque [Maria] 
+
+# Arquitetura Hexagonal
+
+Adotamos uma arquitetura hexagonal para que o domínio fique limpo de tecnologia, ou seja, ele não conhece os detalhes de implementação do banco e coisas do tipo. Para isso, criamos um diretório adaptors que contém os adaptadores de todas as entidades do sistema. Dessa forma, todas as rotas consomem as funções de adaptors para realizarem suas funcionalidades
