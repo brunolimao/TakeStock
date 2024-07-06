@@ -1,0 +1,179 @@
+/* Reset de estilo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo da sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    border-right: 2px solid #E8F1F9;
+    overflow: hidden;
+    z-index: 100;
+}
+
+/* Container superior para o logo e os itens principais */
+.sidebar-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+/* Container intermediário (se necessário) */
+.sidebar-middle {
+    flex-grow: 1; /* Adiciona espaço flexível no meio */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container fixo para os itens no final */
+.sidebar-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Puxa o footer para o final */
+    padding-top: 20px;
+    padding-bottom: 20px; /* Ajuste o padding conforme necessário */
+}
+
+/* Estilo do logo */
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Links da sidebar */
+.menu-item {
+    margin: 10px 0; /* Ajuste o espaço entre os itens */
+    font-size: 16px;
+    color: #6a6a6a;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.menu-item span {
+    font-size: 14px;
+    color: #6a6a6a;
+}
+
+/* Separadores */
+.separator {
+    width: 80%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 10px 0; /* Ajuste o espaço acima e abaixo do divisor */
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .menu-item {
+        justify-content: center;
+    }
+
+    .menu-item span {
+        display: none;
+    }
+
+    .logo {
+        width: 50px;
+    }
+}
+
+/* Estilização do container principal */
+.container-register {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #473977;
+}
+
+/* Estilo do formulário de registro */
+.wrap-register {
+    width: 390px;
+    background-color: #E8F1F9;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo dos campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #D9D7EF;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+
+    font-size: 15px;
+    color: #000;
+    line-height: 1.2;
+    border: 1px solid;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background-color: transparent;
+    padding: 0 5px;
+}
+
+/* Estilo do botão de registro */
+.register-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #473977;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.register-btn:hover {
+    background-color: #3a2f63;
+}
+
+/* Estilo do título */
+.register-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1a1722;
+    font-weight: bold;
+}
