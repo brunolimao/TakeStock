@@ -1,11 +1,9 @@
-/* Reset de estilo */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo da sidebar */
 .sidebar {
     position: fixed;
     left: 0;
@@ -22,7 +20,6 @@
     z-index: 100;
 }
 
-/* Container superior para o logo e os itens principais */
 .sidebar-top {
     width: 100%;
     display: flex;
@@ -31,36 +28,35 @@
     margin-bottom: auto;
 }
 
-/* Container intermediário (se necessário) */
 .sidebar-middle {
-    flex-grow: 1; /* Adiciona espaço flexível no meio */
+    flex-grow: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Container fixo para os itens no final */
+
 .sidebar-footer {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: auto; /* Puxa o footer para o final */
+    margin-top: auto; 
     padding-top: 20px;
-    padding-bottom: 20px; /* Ajuste o padding conforme necessário */
+    padding-bottom: 20px; 
 }
 
-/* Estilo do logo */
+
 .logo {
-    width: 150px;
+    width: 170px;
     height: auto;
     margin-bottom: 20px;
 }
 
-/* Links da sidebar */
+
 .menu-item {
-    margin: 10px 0; /* Ajuste o espaço entre os itens */
+    margin: 10px 0; 
     font-size: 16px;
     color: #6a6a6a;
     text-decoration: none;
@@ -86,12 +82,12 @@
     color: #6a6a6a;
 }
 
-/* Separadores */
+
 .separator {
     width: 80%;
     height: 1px;
     background-color: #e0e0e0;
-    margin: 10px 0; /* Ajuste o espaço acima e abaixo do divisor */
+    margin: 10px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -112,7 +108,7 @@
     }
 }
 
-/* Estilização do container principal */
+
 .container-register {
     display: flex;
     min-height: 100vh;
@@ -121,7 +117,7 @@
     background-color: #473977;
 }
 
-/* Estilo do formulário de registro */
+
 .wrap-register {
     width: 390px;
     background-color: #E8F1F9;
@@ -131,7 +127,7 @@
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo dos campos de entrada */
+
 .input-field {
     width: 100%;
     padding: 10px;
@@ -152,7 +148,7 @@
     padding: 0 5px;
 }
 
-/* Estilo do botão de registro */
+
 .register-btn {
     width: 100%;
     padding: 15px;
@@ -169,7 +165,6 @@
     background-color: #3a2f63;
 }
 
-/* Estilo do título */
 .register-title {
     text-align: center;
     font-size: 24px;
