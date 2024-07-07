@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 
-import '../styles/Register.css';
+import styles from '../styles/Register.module.css';
 
 function Register() {
-  console.log('Register component rendered');
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,59 +11,59 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   return (
-    <div className="container-login">
-      <div className="login-left">
-        <img src={logo} alt="Take Stock Logo" className="login-logo" />
+    <div className={styles.container_login}>
+      <div className={styles.login_left}>
+        <img src={logo} alt="Take Stock Logo" className={styles.login_logo} />
       </div>
-      <div className="login-right">
-        <div className="wrap-login">
-          <form className="login-form">
-            <div className="wrap-input">
+      <div className={styles.login_right}>
+        <div className={styles.wrap_login}>
+          <form className={styles.login_form}>
+            <div className={styles.wrap_input}>
               <input 
-                className={name !== '' ? "has-val input" : "input"}
+                className={name !== '' ? `${styles.has_val} ${styles.input}` : styles.input}
                 type="text" 
                 name="name" 
                 required 
                 value={name}
                 onChange={e => setName(e.target.value)} />
-              <span className="focus-input" data-placeholder="Nome"></span>
+              <span className={styles.focus_input} data-placeholder="Nome"></span>
             </div>
 
-            <div className="wrap-input">
+            <div className={styles.wrap_input}>
               <input 
-                className={email !== '' ? "has-val input" : "input"}
+                className={email !== '' ? `${styles.has_val} ${styles.input}` : styles.input}
                 type="email" 
                 name="email" 
                 required 
                 value={email}
                 onChange={e => setEmail(e.target.value)} />
-              <span className="focus-input" data-placeholder="Email"></span>
+              <span className={styles.focus_input} data-placeholder="Email"></span>
             </div>
 
-            <div className="wrap-input">
+            <div className={styles.wrap_input}>
               <input 
-                className={password !== '' ? "has-val input" : "input"}
+                className={password !== '' ? `${styles.has_val} ${styles.input}` : styles.input}
                 type="password" 
                 name="password" 
                 required 
                 value={password}
                 onChange={e => setPassword(e.target.value)} />
-              <span className="focus-input" data-placeholder="Senha"></span>
+              <span className={styles.focus_input} data-placeholder="Senha"></span>
             </div>
 
-            <div className="wrap-input">
+            <div className={styles.wrap_input}>
               <input 
-                className={confirmPassword !== '' ? "has-val input" : "input"}
+                className={confirmPassword !== '' ? `${styles.has_val} ${styles.input}` : styles.input}
                 type="password" 
                 name="confirmPassword" 
                 required 
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)} />
-              <span className="focus-input" data-placeholder="Confirmar Senha"></span>
+              <span className={styles.focus_input} data-placeholder="Confirmar Senha"></span>
             </div>
 
-            <div className="container-login-form-btn">
-              <button className="login-form-btn">Cadastrar</button>
+            <div className={styles.container_login_form_btn}>
+              <button className={styles.login_form_btn}>Cadastrar</button>
             </div>
 
           </form>

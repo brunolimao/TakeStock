@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-import '../styles/RegisterStock.css';
+import styles from '../styles/RegisterStock.module.css';
 import takeStockLogo from '../assets/logo.png';
 import profileIcon from '../assets/ProfileIcon.png';
 import infoIcon from '../assets/InfoIcon.png';
@@ -21,43 +21,43 @@ function RegisterStock() {
 
   
   return (
-    <div className="container-register">
-      <div className="sidebar">
-      <div className="sidebar-top">
-        <img src={takeStockLogo} alt="Take Stock Logo" className="logo" />
-        <a href="#stocks" className="menu-item">
-          <img src={stockIcon} alt="Stocks" className="icon" />
+    <div className={styles.container_register}>
+      <div className={styles.sidebar}>
+      <div className={styles.sidebar_top}>
+        <img src={takeStockLogo} alt="Take Stock Logo" className={styles.logo} />
+        <a href="#stocks" className={styles.menu_item}>
+          <img src={stockIcon} alt="Stocks" className={styles.icon} />
           <span>Meus estoques</span>
         </a>
       </div>
-      <div className="sidebar-middle">
+      <div className={styles.sidebar_middle}>
       </div>
-      <div className="sidebar-footer">
-        <div className="separator"></div>
-        <a href="#profile" className="menu-item">
-          <img src={profileIcon} alt="Profile" className="icon" />
+      <div className={styles.sidebar_footer}>
+        <div className={styles.separator}></div>
+        <a href="#profile" className={styles.menu_item}>
+          <img src={profileIcon} alt="Profile" className={styles.icon} />
           <span>Perfil</span>
         </a>
-        <a href="#help" className="menu-item">
-          <img src={infoIcon} alt="Help" className="icon" />
+        <a href="#help" className={styles.menu_item}>
+          <img src={infoIcon} alt="Help" className={styles.icon} />
           <span>Ajuda</span>
         </a>
       </div>
     </div>
 
 
-      <form className="wrap-register" onSubmit={handleSubmit}>
-        <h2 className="register-title">Cadastre seu estoque</h2>
+      <form className={styles.wrap_register} onSubmit={handleSubmit}>
+        <h2 className={styles.register_title}>Cadastre seu estoque</h2>
         <input 
           type="text" 
-          className="input-field" 
+          className={styles.input_field} 
           placeholder="Nome" 
           value={name} 
           onChange={(e) => setName(e.target.value)} 
           required 
         />
         <textarea 
-          className="input-field" 
+          className={styles.input_field} 
           placeholder="Descrição" 
           value={description} 
           onChange={(e) => setDescription(e.target.value)} 
@@ -65,13 +65,13 @@ function RegisterStock() {
         />
         <input 
           type="text" 
-          className="input-field" 
+          className={styles.input_field} 
           placeholder="Categoria" 
           value={category} 
           onChange={(e) => setCategory(e.target.value)} 
           required 
         />
-        <button type="submit" className="register-btn">Cadastrar</button>
+        <button type="submit" className={styles.register_btn}>Cadastrar</button>
       </form>
     </div>
   );
