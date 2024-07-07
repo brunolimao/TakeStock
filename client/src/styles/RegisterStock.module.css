@@ -1,6 +1,3 @@
-
-
-
 .separator {
     width: 80%;
     height: 1px;
@@ -20,7 +17,7 @@
 
 .wrap_register {
     width: 390px;
-    background-color: #E8F1F9;
+    background-color: var(--light-purple);
     border-radius: 10px;
     overflow: hidden;
     padding: 77px 55px 33px 55px;
@@ -71,4 +68,46 @@
     margin-bottom: 20px;
     color: #1a1722;
     font-weight: bold;
+}
+
+.view_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-left: calc(250px + 5rem);
+}
+
+.view_box {
+    background-color: var(--light-purple);
+    color: #000;
+    max-width: 33.33%;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.view_container span {
+    font-style: italic;
+    align-self: center;
+}
+
+.description {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.button_section {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.button_section button {
+    width: 100%;
 }
