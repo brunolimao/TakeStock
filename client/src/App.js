@@ -5,6 +5,8 @@ import Register from './components/Register.js';
 import RegiterStock from './components/RegisterStock.js';
 import EditStock from './components/EditStock.js';
 
+import "./index.css";
+
 function App() {
   
   useEffect(() => {
@@ -16,11 +18,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path='/registerstock' element={<RegiterStock />} />
+          <Route path="/cadastro" element={<Register />} />
           <Route path="/home" element={<Login />} />
-          <Route path="/editStock" element={<EditStock />} />
           <Route path="/" element={<Login />} />
+          
+          <Route path='/estoque/cadastro' element={<RegiterStock />} />
+          <Route path="/estoque/editar" element={<EditStock />} />
         </Routes>
       </Router>
     </React.StrictMode>

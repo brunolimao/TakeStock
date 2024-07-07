@@ -22,7 +22,7 @@ function Login() {
 
             <div className={styles.wrap_input}>
               <input 
-              className={email !== '' ? `${styles.has-val} ${styles.input}` : styles.input}
+              className={email !== '' ? `${styles.has_val} ${styles.input}` : styles.input}
               type="email" 
               name="email" 
               required 
@@ -33,7 +33,7 @@ function Login() {
 
             <div className={styles.wrap_input}>
               <input
-              className={password !=='' ? `${styles.has-val} ${styles.input}` : styles.input}
+              className={password !=='' ? `${styles.has_val} ${styles.input}` : styles.input}
               type="password"
               name="password" required 
               value={password}
