@@ -3,8 +3,56 @@ import { MainLayout } from "../layouts/main";
 
 import styles from '../styles/Products.module.css';
 import { Button } from "../components/Button";
+import { useState } from "react";
+import { Modal } from "../components/Modal";
+import { ProductForm } from "../components/ProductForms/ProductForm";
 
 export const ViewProducts = function() {
+    
+    const [products, setProducts] = useState([
+        {
+            name: 'Produto 1',
+            category: 'Categoria',
+            description: 'Descrição do produto',
+            price: 10.0,
+            amount: 50,
+        },
+        {
+            name: 'Produto 2',
+            category: 'Categoria',
+            description: 'Descrição do produto',
+            price: 123.50,
+            amount: 2,
+        },
+    ]);
+
+    const [productToDelete, setProductToDelete] = useState({});
+    const [productToEdit, setProductToEdit] = useState({});
+    const [newProductModalOpen, setNewProductModalOpen] = useState(false);
+
+    const addNewProduct = (newProduct) => {
+        setProducts((prev) => ([...prev, newProduct]));
+        setNewProductModalOpen(false);
+    };
+
+    const editProduct = (editedProduct) => {
+        const oldProductName = productToEdit.name;
+        setProducts((prev) => (
+            prev.map((prod) => (
+                prod.name === oldProductName
+                    ? editedProduct
+                    : prod
+            ))
+        ));
+
+        setProductToEdit({});
+    };
+
+    const deleteProduct = () => {
+        setProducts((prev) => prev.filter((prod) => prod.name !== productToDelete.name));
+        setProductToDelete({});
+    };
+
     return (
         <MainLayout>
             <div className={styles.container}>
@@ -21,58 +69,72 @@ export const ViewProducts = function() {
                                 Editar
                             </Button>
                         </Link>
-
-                        <Button red small>
-                            Excluir
-                        </Button>
                     </div>
                 </div>
 
                 <hr />
 
                 <h4>Produtos</h4>
-                <Link to="/produtos/cadastrar">
-                    <Button fullWidth={false}>Cadastrar novo produto</Button>
-                </Link>
+                <Button 
+                    fullWidth={false} 
+                    onClick={() => setNewProductModalOpen(true)}
+                >
+                    Cadastrar novo produto
+                </Button>
 
-                <div className={styles.subcontainer}>    
-                    <div className={styles.content}>
-                        <h5>Produto 1</h5>
-                        <span className={styles.category}>Categoria</span>
-                        <p>Descrição do produto</p>
-                    </div>
-                    <div className={styles.buttons}>
-                        <Link to="/produtos/editar">
-                            <Button>
+                {products.map((prod) => (
+                    <div key={prod.name} className={styles.subcontainer}>    
+                        <div className={styles.content}>
+                            <h5>{prod.name}</h5>
+                            <span className={styles.category}>{prod.category}</span>
+                            <p>{prod.description}</p>
+                        </div>
+                        <div className={styles.buttons}>
+                            <Button onClick={() => setProductToEdit(prod)}>
                                 Editar
                             </Button>
-                        </Link>
 
-                        <Button red>
-                            Excluir
-                        </Button>
-                    </div>
-                </div>
-
-                <div className={styles.subcontainer}>    
-                    <div className={styles.content}>
-                        <h5>Produto 1</h5>
-                        <span className={styles.category}>Categoria</span>
-                        <p>Descrição do produto</p>
-                    </div>
-                    <div className={styles.buttons}>
-                        <Link to="/produtos/editar">
-                            <Button>
-                                Editar
+                            <Button red onClick={() => setProductToDelete(prod)}>
+                                Excluir
                             </Button>
-                        </Link>
-
-                        <Button red>
-                            Excluir
-                        </Button>
+                        </div>
                     </div>
-                </div>
+                ))}
             </div>
+
+            <Modal
+                open={!!productToDelete.name}
+                onClose={() => setProductToDelete({})}
+                title={`Tem certeza que deseja excluir ${productToDelete.name}?`}
+            >
+                <span>Atenção, esta ação não poderá ser desfeita.</span>
+
+                <div className={styles.modal_buttons}>
+                    <Button onClick={() => setProductToDelete({})}>
+                        Não, quero mantê-lo.
+                    </Button>
+
+                    <Button red onClick={() => deleteProduct()}>
+                        Sim, quero exclui-lo!
+                    </Button>
+                </div>
+            </Modal>
+
+            <Modal
+                open={newProductModalOpen}
+                onClose={() => setNewProductModalOpen(false)}
+                title="Cadastrar novo produto"
+            >
+                <ProductForm action={addNewProduct} />
+            </Modal>
+
+            <Modal
+                open={!!productToEdit.name}
+                onClose={() => setProductToEdit({})}
+                title={`Editar: ${productToEdit.name}`}
+            >
+                <ProductForm defaultValues={productToEdit} action={editProduct} />
+            </Modal>
         </MainLayout>
     );
 }

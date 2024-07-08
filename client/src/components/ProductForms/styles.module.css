@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    min-width: 400px;
+}
+
+.horizontal {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.content input, .content textarea {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.content label {
+
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

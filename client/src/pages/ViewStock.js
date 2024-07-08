@@ -23,6 +23,11 @@ function ViewStock() {
                     <div className={styles.description}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </div>
+                    <Link to="/produtos/visualizar">
+                        <Button small style={{ marginBottom: '0.5rem' }}>
+                            Ver produtos
+                        </Button>
+                    </Link>
                     <div className={styles.button_section}>
                         <Button>
                             <Link to="/estoque/editar">
