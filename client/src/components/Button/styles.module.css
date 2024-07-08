@@ -1,0 +1,16 @@
+.button {
+    background: var(--dark-purple);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #fff;
+    font-size: 1.15em;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.small {
+    font-size: 0.85em;
+    padding: 0.5rem;
+}

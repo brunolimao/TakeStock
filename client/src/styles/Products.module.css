@@ -1,0 +1,45 @@
+.container {
+    background: var(--light-purple);
+    padding: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #000;
+    margin: 5rem 0;
+}
+
+.subcontainer {
+    background: var(--lighter-purple);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.subcontainer h4 {
+    font-size: 1.15em;
+}
+
+.subcontainer h5 {
+    font-size: 1em;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.category {
+    font-style: italic;
+    color: #333;
+}

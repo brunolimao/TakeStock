@@ -1,0 +1,113 @@
+.separator {
+    width: 80%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 10px 0;
+}
+
+
+.container_register {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #473977;
+}
+
+
+.wrap_register {
+    width: 390px;
+    background-color: var(--light-purple);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 77px 55px 33px 55px;
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+.input_field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #D9D7EF;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+
+    font-size: 15px;
+    color: #000;
+    line-height: 1.2;
+    border: 1px solid;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background-color: transparent;
+    padding: 0 5px;
+}
+
+
+.register_btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #473977;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.register_btn:hover {
+    background-color: #3a2f63;
+}
+
+.register_title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1a1722;
+    font-weight: bold;
+}
+
+.view_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-left: calc(250px + 5rem);
+}
+
+.view_box {
+    background-color: var(--light-purple);
+    color: #000;
+    max-width: 33.33%;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.view_container span {
+    font-style: italic;
+    align-self: center;
+}
+
+.description {
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.button_section {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.button_section button {
+    width: 100%;
+}
