@@ -1,6 +1,8 @@
 :root {
   --light-purple: #E8F1F9;
   --dark-purple: #57449A;
+  --lighter-purple: #E5E4F0;
+  --darker-purple: #473977;
   --red: #B43838;
 }
 
@@ -12,7 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background: black;
+  background: var(--darker-purple);
   color: #fff;
 }
 code {

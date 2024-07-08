@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login.js';
 import Register from './pages/Register.js';
@@ -7,13 +7,9 @@ import EditStock from './pages/EditStock.js';
 import ViewStock from './pages/ViewStock.js';
 
 import "./index.css";
+import ViewProducts from './pages/ViewProducts.js';
 
 function App() {
-  
-  useEffect(() => {
-    document.title = "TakeStock";
-  }, []);
-
   return (
     <React.StrictMode>
       <Router>
@@ -26,6 +22,8 @@ function App() {
           <Route path='/estoque/cadastro' element={<RegiterStock />} />
           <Route path="/estoque/editar" element={<EditStock />} />
           <Route path="/estoque/visualizar" element={<ViewStock />} />
+
+          <Route path="/produtos/visualizar" element={<ViewProducts />} />
         </Routes>
       </Router>
     </React.StrictMode>
