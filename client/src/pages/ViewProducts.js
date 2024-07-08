@@ -5,7 +5,8 @@ import styles from '../styles/Products.module.css';
 import { Button } from "../components/Button";
 import { useState } from "react";
 import { Modal } from "../components/Modal";
-import { ProductForm } from "../components/ProductForms/ProductForm";
+import { ProductForm } from "../components/Forms/ProductForm";
+import { Avatar } from "@mui/material";
 
 export const ViewProducts = function() {
     
@@ -53,6 +54,8 @@ export const ViewProducts = function() {
         setProductToDelete({});
     };
 
+    const members = ['Ana', 'Bruno', 'Guilherme', 'Maria'];
+
     return (
         <MainLayout>
             <div className={styles.container}>
@@ -70,6 +73,20 @@ export const ViewProducts = function() {
                             </Button>
                         </Link>
                     </div>
+                </div>
+
+                <hr />
+
+                <h4>Membros</h4>
+                <Link to="/membros">
+                    <Button small fullWidth={false}>
+                        Gerenciar membros
+                    </Button>
+                </Link>
+                <div className={styles.members}>
+                    {members.map((m) => (
+                        <Avatar key={m}>{m[0]}</Avatar>
+                    ))}
                 </div>
 
                 <hr />
