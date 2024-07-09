@@ -8,6 +8,7 @@ import ViewStock from './pages/ViewStock.js';
 
 import "./index.css";
 import ViewProducts from './pages/ViewProducts.js';
+import { Members } from './pages/Members.js';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path="/estoque/visualizar" element={<ViewStock />} />
 
           <Route path="/produtos/visualizar" element={<ViewProducts />} />
+
+          <Route path="/membros" element={<Members />} />
         </Routes>
       </Router>
     </React.StrictMode>

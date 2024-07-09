@@ -43,3 +43,15 @@
     font-style: italic;
     color: #333;
 }
+
+.modal_buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.members {
+    display: flex;
+    gap: 1rem;
+}

@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 export const Modal = ({ title, open, onClose, children }) => {
     return (
-        <Dialog open={open} onClose={onClose} PaperProps={{
+        <Dialog open={open} onClose={onClose} scroll="body" PaperProps={{
             className: styles.modal,
         }}>
             <h3>{title}</h3>
