@@ -106,6 +106,7 @@
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+    font-size: small;
 }
 
 .button_section button {

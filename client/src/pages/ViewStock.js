@@ -21,7 +21,7 @@ function ViewStock() {
                     <h3>Supermercado da turma</h3>
                     <span>Alimentícios</span>
                     <div className={styles.description}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Estoque de produtos alimentícios variados, incluindo ingredientes básicos e itens gourmet, todos de alta qualidade. Produtos frescos, selecionados para atender diferentes necessidades alimentares e gastronômicas.
                     </div>
                     <Link to="/produtos/visualizar">
                         <Button small style={{ marginBottom: '0.5rem' }}>
