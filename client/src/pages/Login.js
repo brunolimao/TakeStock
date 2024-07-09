@@ -47,7 +47,7 @@ function Login() {
 
             <div className={styles.text_center}>
               <span className={styles.txt1}>Novo aqui?</span>
-              <a className={styles.txt2} href="/register">Cadastre-se</a>
+              <a className={styles.txt2} href="/cadastro">Cadastre-se</a>
             </div>
 
           </form>

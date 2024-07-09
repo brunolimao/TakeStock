@@ -42,8 +42,8 @@
 .login_left {
  
     flex: 0.2; 
-    min-height: 65vh;
-    min-width: 61vh;
+    min-height: 73.5vh;
+    min-width: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,8 +60,8 @@
 
 .login_right {
     flex: 0.2; 
-    min-height: 65vh;
-    min-width: 61vh;
+    min-height: 60vh;
+    min-width: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +73,8 @@
 }
 
 .wrap_login {
-    width: 390px;
+    width: 330px;
+    height: 400px;
     background-color: #E8F1F9;
     border-radius: 10px;
     overflow: hidden;
@@ -181,7 +182,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #473977;
+    background: #312752;
 }
 
 .login_form_btn:hover {

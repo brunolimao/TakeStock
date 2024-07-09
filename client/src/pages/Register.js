@@ -65,7 +65,11 @@ function Register() {
             <div className={styles.container_login_form_btn}>
               <button className={styles.login_form_btn}>Cadastrar</button>
             </div>
-
+            <div className={styles.text_center}>
+              <span className={styles.txt3}>Já possui cadastro?</span>
+              <a className={styles.txt4} href="/login">Fazer Login</a>
+            </div>
+            
           </form>
         </div>
       </div>
