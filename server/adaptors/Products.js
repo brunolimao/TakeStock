@@ -61,24 +61,6 @@ async function products_category(StockId){
   return categories
 }
 
-async function products_category(StockId){
-  const products = await Product.findAll({attributes: ['category'], raw: true, where:{StockId}})
-
-  let categories = products.map(obj => obj.category);
-  categories = [...new Set(categories)]  
-  for(let i = 0; i < categories.length; i++){
-    let total_categoria = 0
-    for(let j = 0; j < products.length; j++){
-      if(products[j].category == categories[i]){
-        total_categoria += 1
-      }
-    }
-    categories[i] = {"category": categories[i], 'number': total_categoria}
-  }
-
-  return categories
-}
-
 async function product_most_valuable(StockId){
   const products = await Product.findAll({attributes: ['price', "number", 'name'], raw: true, where:{StockId}})
 

@@ -1,5 +1,4 @@
 const sequelize = require('./index.js');
-const {DataTypes} = require('sequelize');
 const User = require('./User.js')
 const Stock = require('./Stock.js')
 
