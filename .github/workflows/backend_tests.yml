@@ -13,14 +13,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
 
-      - name: Enter server
-        run: cd server
-
       - name: Install dependencies
-        run: npm install
+        run: cd server npm install
 
       - name: Run Jest tests
-        run: npm test --coverage
+        run: cd server npm test --coverage
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v2
