@@ -26,6 +26,9 @@ jest.mock('sequelize', () => {
       static findAll() {}
       static update() {}
     },
+    Op: {
+      like: actualSequelize.Op.like
+    }
   };
   return SequelizeMock;
 })
@@ -66,5 +69,82 @@ describe('Products Repository', () => {
         StockId: 1,
       },
     });
+  });
+
+  test('update_product should call Product.update with the correct product data', async () => {
+    const product = { id: 1, name: 'Updated Product', description: 'Updated Description', category: 'Updated Category', number: 5, price: 100 };
+  
+    await update_product(product);
+    expect(Product.update).toHaveBeenCalledWith({
+      name: product.name,
+      description: product.description,
+      category: product.category,
+      number: product.number,
+      price: product.price
+    }, { where: { id: product.id } });
+  });
+
+  test('products_mean_price should return the average price of products in a given StockId', async () => {
+    const mockProducts = [{ price: 10 }, { price: 20 }, { price: 30 }];
+    Product.findAll.mockResolvedValue(mockProducts);
+  
+    const averagePrice = await products_mean_price(1);
+    expect(averagePrice).toBe(20);
+    expect(Product.findAll).toHaveBeenCalledWith({
+      attributes: ['price'],
+      raw: true,
+      where: { StockId: 1 }
+    });
+  });
+  
+  test('products_mean_price should return 0 if no products are found', async () => {
+    Product.findAll.mockResolvedValue([]);
+  
+    const averagePrice = await products_mean_price(1);
+    expect(averagePrice).toBe(0);
+  });
+
+  test('products_category should return a list of categories with product counts for a given StockId', async () => {
+    const mockProducts = [
+      { category: 'CategoryA' },
+      { category: 'CategoryB' },
+      { category: 'CategoryA' }
+    ];
+    Product.findAll.mockResolvedValue(mockProducts);
+  
+    const categories = await products_category(1);
+    expect(categories).toEqual([
+      { category: 'CategoryA', number: 2 },
+      { category: 'CategoryB', number: 1 }
+    ]);
+    expect(Product.findAll).toHaveBeenCalledWith({
+      attributes: ['category'],
+      raw: true,
+      where: { StockId: 1 }
+    });
+  });
+
+  test('product_most_valuable should return the name of the most valuable product in a given StockId', async () => {
+    const mockProducts = [
+      { price: 10, number: 2, name: 'Product1' },
+      { price: 20, number: 1, name: 'Product2' },
+      { price: 15, number: 3, name: 'Product3' }
+    ];
+    Product.findAll.mockResolvedValue(mockProducts);
+  
+    const mostValuableProduct = await product_most_valuable(1);
+    expect(mostValuableProduct).toBe('Product3');
+    expect(Product.findAll).toHaveBeenCalledWith({
+      attributes: ['price', 'number', 'name'],
+      raw: true,
+      where: { StockId: 1 }
+    });
+  });
+  
+  test('product_most_valuable should return an empty string if no products are found', async () => {
+    Product.findAll.mockResolvedValue([]);
+  
+    const mostValuableProduct = await product_most_valuable(1);
+    expect(mostValuableProduct).toBe('');
   });
 });
