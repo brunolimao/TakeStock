@@ -13,6 +13,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
 
+      - name: Enter server
+        run: cd server
+
       - name: Install dependencies
         run: npm install
 
