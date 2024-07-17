@@ -48,7 +48,7 @@ router.post('/login', async function(req, res, next) {
       httpOnly: true
     })
 
-    res.sendStatus(200)
+    res.send({ id: user.id });
 
   } catch (error) {
     res.send('Erro!')

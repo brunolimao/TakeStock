@@ -11,27 +11,34 @@ import "./index.css";
 import ViewProducts from './pages/ViewProducts.js';
 import { Members } from './pages/Members.js';
 
+import { AuthProvider } from './contexts/AuthContext.js';
+import { SnackbarProvider } from 'notistack';
+
 function App() {
   return (
     <React.StrictMode>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/cadastro" element={<Register />} />
-          <Route path="/perfil" element={<Profile/>}/>
-          
-          <Route path="/home" element={<Login />} />
-          <Route path="/" element={<Login />} />
-          
-          <Route path='/estoque/cadastro' element={<RegiterStock />} />
-          <Route path="/estoque/editar" element={<EditStock />} />
-          <Route path="/estoque/visualizar" element={<ViewStock />} />
+      <SnackbarProvider>
+        <AuthProvider>
+          <Router>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro" element={<Register />} />
+              <Route path="/perfil" element={<Profile/>}/>
+              
+              <Route path="/home" element={<Login />} />
+              <Route path="/" element={<Login />} />
+              
+              <Route path='/estoque/cadastro' element={<RegiterStock />} />
+              <Route path="/estoque/editar/:stockId" element={<EditStock />} />
+              <Route path="/estoque/visualizar" element={<ViewStock />} />
 
-          <Route path="/produtos/visualizar" element={<ViewProducts />} />
+              <Route path="/estoque/:stockId" element={<ViewProducts />} />
 
-          <Route path="/membros" element={<Members />} />
-        </Routes>
-      </Router>
+              <Route path="/estoque/:stockId/membros" element={<Members />} />
+            </Routes>
+          </Router>
+        </AuthProvider>
+      </SnackbarProvider>
     </React.StrictMode>
   );
 }

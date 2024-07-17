@@ -7,17 +7,28 @@ import { MainLayout } from '../layouts/main';
 import styles from '../styles/RegisterStock.module.css';
 
 import * as StockService from '../service/stocks';
+import { useAuth } from '../hooks/useAuth';
 
 function ViewStock() {
     
     const [stockToDelete, setStockToDelete] = useState(null);
     const [stocks, setStocks] = useState([]);
+    const { userId } = useAuth();
+
+    const deleteStock = async () => {
+        try {
+            await StockService.deleteStock({ stockId: stockToDelete.id });
+            setStockToDelete(null);
+        } catch {
+            alert('Erro ao deletar o estoque.');
+        }
+    };
 
     useEffect(() => {
-        StockService.getStocks().then((res) => {
+        StockService.getStocks(userId).then((res) => {
             setStocks(res.data.stocks);
         });
-    }, []);
+    }, [userId]);
 
     return (
         <MainLayout>
@@ -25,13 +36,13 @@ function ViewStock() {
         
             <div className={styles.view_container}>
                 {stocks.map((stock) => (
-                    <div className={styles.view_box}>
+                    <div className={styles.view_box} div={stock.id}>
                         <h3>{stock.name}</h3>
                         <span>{stock.category}</span>
                         <div className={styles.description}>
                             {stock.description}
                         </div>
-                        <Link to={`/estoque/${stock.id}/produtos`}>
+                        <Link to={`/estoque/${stock.id}`}>
                             <Button small style={{ marginBottom: '0.5rem' }}>
                                 Ver produtos
                             </Button>
@@ -56,11 +67,13 @@ function ViewStock() {
                 onClose={() => setStockToDelete(null)}
                 title="Tem certeza que deseja excluir esse estoque?"
             >
+                <div style={{ marginBottom: '1rem' }}>{stockToDelete?.name}</div>
+
                 <div className={styles.button_section}>
-                    <Button>
+                    <Button onClick={() => setStockToDelete(null)}>
                         Não, quero mantê-lo.
                     </Button>
-                    <Button red>
+                    <Button red onClick={() => deleteStock()}>
                         Sim, quero exclui-lo!
                     </Button>
                 </div>

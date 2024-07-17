@@ -15,19 +15,9 @@ router.post('/create', ensureAuth, async function(req , res , next){
   }
 });
 
-router.get('/all', ensureAuth, async function(req, res){
-  try {
-    const stocks = await get_all_stocks();
-
-    res.send({ stocks });
-  } catch {
-    res.send('Erro!');
-  }
-});
-
 router.get('/', ensureAuth, async function(req , res , next){
   try{
-    const id_stock = req.body.id
+    const id_stock = req.query.id
     const stock = await get_stock(id_stock)
     const products = await get_products_from_stock(id_stock)
     const users = await get_users_from_stock(id_stock)
@@ -38,10 +28,10 @@ router.get('/', ensureAuth, async function(req , res , next){
   }
 });
 
-router.get('/get_all_stocks', ensureAuth, async function(req , res , next){
+router.get('/all', ensureAuth, async function(req , res , next){
   try{
-    const id_user = req.user.id
-    const stocks = await get_all_stock(id_user)
+    const id_user = req.query.id
+    const stocks = await get_all_stocks(id_user)
     res.send({stocks: stocks})
   } catch(error){
     res.send("Erro!")

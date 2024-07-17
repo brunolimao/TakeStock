@@ -16,7 +16,7 @@ router.post('/create', ensureAuth, async function(req , res , next){
 
 router.get('/', ensureAuth, async function(req , res , next){
   try{
-    const id_product = req.body.id
+    const id_product = req.query.id
     const product = await get_product(id_product)
     res.send({product: product})
   } catch(error){

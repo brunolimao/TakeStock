@@ -18,7 +18,7 @@ function Register() {
   const submit = async (e) => {
     e.preventDefault();
     await register({ name, email, password });
-    navigate('/estoque/visualizar');
+    navigate('/login');
   };
 
   return (

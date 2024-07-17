@@ -1,23 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { useNavigate } from "react-router-dom";
 
 import styles from '../styles/Login.module.css';
 
 import { useState } from 'react';
 
-import { login } from '../service/auth';
+import { useAuth } from '../hooks/useAuth';
 
 function Login() {
 
-  const[email, setEmail] = useState('');
-  const[password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
+
     await login({ email, password });
     navigate('/estoque/visualizar');
   };
