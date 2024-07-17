@@ -1,4 +1,4 @@
-const { create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner } = require('../Stocks');
+const { create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner, get_all_stocks } = require('../Stocks');
 const Stock = require('../../models/Stock');
 const Product = require('../../models/Product');
 const User_Stock = require('../../models/UserStock');
@@ -125,5 +125,20 @@ describe('Stocks Repository', () => {
     expect(User_Stock.destroy).toHaveBeenCalledWith({
       where: { StockId: id_stock, UserId: id_user }
     });
+  });
+
+  test('should return all stocks for a user', async () => {
+    const id_user = 1;
+    const stockData = [{ id: 1, name: 'Stock1' }, { id: 2, name: 'Stock2' }];
+    const userStockData = [{ UserId: 1, StockId: 3 }];
+    const stockParticipatingData = [{ id: 3, name: 'Stock3' }];
+    Stock.findAll = jest.fn()
+      .mockResolvedValueOnce(stockData)
+      .mockResolvedValueOnce(stockParticipatingData);
+    User_Stock.findAll = jest.fn().mockResolvedValueOnce(userStockData);
+    const result = await get_all_stocks(id_user);
+    expect(Stock.findAll).toHaveBeenCalledTimes(2);
+    expect(User_Stock.findAll).toHaveBeenCalledTimes(1);
+    expect(result).toEqual([...stockData, ...stockParticipatingData]);
   });
 });
