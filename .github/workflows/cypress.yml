@@ -32,5 +32,3 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress:run
         working-directory: ./client
-        with:
-          run: npm start
