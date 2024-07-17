@@ -26,7 +26,7 @@ export const ViewProducts = function() {
 
     const addNewProduct = async (newProduct) => {
         try {
-            await ProductService.createProduct({ ...newProduct, id: productToEdit.id });
+            await ProductService.createProduct({ ...newProduct, StockId: stockId });
             setProducts((prev) => ([...prev, newProduct]));
             setNewProductModalOpen(false);  
         } catch {
@@ -36,7 +36,7 @@ export const ViewProducts = function() {
 
     const editProduct = async (editedProduct) => {
         try {
-            await ProductService.updateProduct(editedProduct);
+            await ProductService.updateProduct({ ...editedProduct, id: productToEdit.id });
 
             const oldProductId = productToEdit.id;
             setProducts((prev) => (
@@ -101,7 +101,7 @@ export const ViewProducts = function() {
                         Gerenciar membros
                     </Button>
                 </Link>
-                <div className={styles.members}>
+                <div className={styles.members} id="members">
                     {members.map((m) => (
                         <Avatar key={m.email}>{m.name[0].toUpperCase()}</Avatar>
                     ))}
@@ -118,7 +118,7 @@ export const ViewProducts = function() {
                 </Button>
 
                 {products.map((prod) => (
-                    <div key={prod.name} className={styles.subcontainer}>    
+                    <div key={prod.name} className={styles.subcontainer} name="prod">    
                         <div className={styles.content}>
                             <h5>{prod.name}</h5>
                             <span className={styles.category}>{prod.category}</span>

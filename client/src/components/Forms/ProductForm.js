@@ -22,32 +22,32 @@ export const ProductForm = function({ action, defaultValues = {} }) {
         <form className={styles.content} onSubmit={submit}>
             <div className={styles.input}>
                 <label>Nome</label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nome" />
+                <input name="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nome" />
             </div>
 
             <div className={styles.input}>
                 <label>Descrição</label>
-                <textarea type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Descrição" />
+                <textarea name="description" type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Descrição" />
             </div>
 
             <div className={styles.input}>
                 <label>Categoria</label>
-                <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Categoria" />
+                <input name="category" type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Categoria" />
             </div>
 
             <div className={styles.horizontal}>
                 <div className={styles.input}>
                     <label>Quantidade</label>
-                    <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Quantidade" />
+                    <input type="text" name="amount" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Quantidade" />
                 </div>
 
                 <div className={styles.input}>
                     <label>Preço</label>
-                    <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Preço" />
+                    <input type="text" name="price" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Preço" />
                 </div>
             </div>
 
-            <Button>
+            <Button type="submit" name="submit">
                 Enviar
             </Button>
         </form>
