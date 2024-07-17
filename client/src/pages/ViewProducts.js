@@ -55,6 +55,7 @@ export const ViewProducts = function() {
 
     const deleteProduct = async () => {
         try {
+            console.log(productToDelete);
             await ProductService.deleteProduct(productToDelete.id);
             setProducts((prev) => prev.filter((prod) => prod.id !== productToDelete.id));
             setProductToDelete({});

@@ -18,6 +18,7 @@ function ViewStock() {
     const deleteStock = async () => {
         try {
             await StockService.deleteStock({ stockId: stockToDelete.id });
+            setStocks((prev) => prev.filter((stock) => stock.id !== stockToDelete.id));
             setStockToDelete(null);
         } catch {
             alert('Erro ao deletar o estoque.');
@@ -36,7 +37,7 @@ function ViewStock() {
         
             <div className={styles.view_container}>
                 {stocks.map((stock) => (
-                    <div className={styles.view_box} div={stock.id}>
+                    <div className={styles.view_box} div={stock.id} key={stock.id}>
                         <h3>{stock.name}</h3>
                         <span>{stock.category}</span>
                         <div className={styles.description}>
@@ -73,7 +74,7 @@ function ViewStock() {
                     <Button onClick={() => setStockToDelete(null)}>
                         Não, quero mantê-lo.
                     </Button>
-                    <Button red onClick={() => deleteStock()}>
+                    <Button red onClick={deleteStock}>
                         Sim, quero exclui-lo!
                     </Button>
                 </div>

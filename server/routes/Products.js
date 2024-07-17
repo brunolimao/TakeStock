@@ -58,7 +58,7 @@ router.post('/update', ensureAuth, async function(req , res , next){
 
 router.delete('/delete', ensureAuth, async function(req , res , next){
   try{
-    const id_product = req.body.id_product
+    const id_product = req.query.id_product
     await delete_product(id_product)
     res.sendStatus(200)
   } catch(error){

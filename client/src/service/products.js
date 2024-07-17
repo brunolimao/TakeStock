@@ -9,5 +9,5 @@ export const updateProduct = ({ name, description, category, amount, price, stoc
 );
 
 export const deleteProduct = (id) => (
-    api.delete('/products/delete', { id_product: id })
+    api.delete('/products/delete', { params: { id_product: id } })
 );

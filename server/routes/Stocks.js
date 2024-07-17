@@ -50,7 +50,7 @@ router.post('/update', ensureAuth, async function(req , res , next){
 
 router.delete('/delete', ensureAuth, async function(req , res , next){
   try{
-    const id_stock = req.body.id_stock
+    const id_stock = req.query.id_stock
     await delete_stock(id_stock)
     res.sendStatus(200)
   } catch(error){
@@ -70,8 +70,8 @@ router.get('/users', ensureAuth, async function(req , res , next){
 
 router.delete('/user', ensureAuth, async function(req , res , next){
   try{
-    const id_stock = req.body.id_stock
-    const id_user = req.body.id_user
+    const id_stock = req.query.id_stock
+    const id_user = req.query.id_user
     await delete_user_from_stock(id_user)
     res.sendStatus(200)
   } catch(error){

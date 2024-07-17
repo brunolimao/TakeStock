@@ -13,10 +13,10 @@ export const createStock = ({ name, description, category }) => (
 );
 
 export const deleteStock = ({ stockId }) => (
-    api.delete('/stocks/delete', { id_stock: stockId })
+    api.delete('/stocks/delete', { params: { id_stock: stockId } })
 );
 
-export const updateStock = ({ stock }) => (
+export const updateStock = (stock) => (
     api.post('/stocks/update', stock)
 );
 
@@ -25,5 +25,5 @@ export const getStockMembers = (id) => (
 );
 
 export const deleteMemberFromStock = ({ userId, stockId }) => (
-    api.delete('/stocks/user', { id_stock: stockId, id_user: userId })
+    api.delete('/stocks/user', { params: { id_stock: stockId, id_user: userId } })
 );
