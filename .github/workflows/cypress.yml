@@ -25,6 +25,11 @@ jobs:
         run: npm install
         working-directory: ./client
 
+      - name: Start React app (ensure it's running)
+        run: npm start &
+        background: true
+        working-directory: ./client
+
       - name: Run Cypress tests
         run: npm run cypress:run
         working-directory: ./client
