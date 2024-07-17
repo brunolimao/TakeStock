@@ -3,12 +3,19 @@ import logo from '../assets/logo.png';
 
 import styles from '../styles/Register.module.css';
 
+import { register } from '../service/auth';
+
 function Register() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const submit = async (e) => {
+    e.preventDefault();
+    await register({ name, email, password });
+  };
 
   return (
     <div className={styles.container_login}>
@@ -17,7 +24,7 @@ function Register() {
       </div>
       <div className={styles.login_right}>
         <div className={styles.wrap_login}>
-          <form className={styles.login_form}>
+          <form className={styles.login_form} onSubmit={submit}>
             <div className={styles.wrap_input}>
               <input 
                 className={name !== '' ? `${styles.has_val} ${styles.input}` : styles.input}

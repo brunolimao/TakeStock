@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner, create_stock, delete_stock} = require('../adaptors/Stocks');
+const {get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner, create_stock, delete_stock, get_all_stocks} = require('../adaptors/Stocks');
 const { ensureAuth } = require('../middlewares/auth');
 
 router.post('/create', ensureAuth, async function(req , res , next){
@@ -12,6 +12,16 @@ router.post('/create', ensureAuth, async function(req , res , next){
     res.sendStatus(200)
   } catch(error){
     res.send('Erro!')
+  }
+});
+
+router.get('/all', ensureAuth, async function(req, res){
+  try {
+    const stocks = await get_all_stocks();
+
+    res.send({ stocks });
+  } catch {
+    res.send('Erro!');
   }
 });
 

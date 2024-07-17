@@ -1,15 +1,25 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 import styles from '../styles/Login.module.css';
 
 import { useState } from 'react';
 
+import { login } from '../service/auth';
+
 function Login() {
 
   const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
+  const submit = async (e) => {
+    e.preventDefault();
+    await login({ email, password });
+    navigate('/estoque/visualizar');
+  };
 
   return (
     <div className={styles.container_login}>
@@ -18,7 +28,7 @@ function Login() {
       </div>
       <div className={styles.login_right}>
         <div className={styles.wrap_login}>
-          <form className={styles.login_form}>
+          <form className={styles.login_form} onSubmit={submit}>
 
             <div className={styles.wrap_input}>
               <input 
@@ -42,7 +52,7 @@ function Login() {
             </div>
 
             <div className={styles.container_login_form_btn}>
-              <button className={styles.login_form_btn}>Login</button>
+              <button type="submit" className={styles.login_form_btn}>Login</button>
             </div>
 
             <div className={styles.text_center}>

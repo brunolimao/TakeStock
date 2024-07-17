@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import styles from '../styles/RegisterStock.module.css';
 import { MainLayout } from '../layouts/main';
+import { createStock } from '../service/stocks';
 
 function RegisterStock() {
   const [name, setName] = useState('');
@@ -10,7 +11,7 @@ function RegisterStock() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ name, description, category });
+    createStock({ name, description, category });
   };
   
   return (

@@ -16,6 +16,11 @@ async function get_stock(id_stock){
   return stock
 }
 
+async function get_all_stocks() {
+  const stocks = await Stock.findAll({ raw: true });
+  return stocks;
+}
+
 async function get_stock_owner(id_stock){
   const stock = await Stock.findOne({attributes: ['UserId'], raw: true, where:{id: id_stock}})
   const id_user = stock.UserId
@@ -50,4 +55,4 @@ async function delete_user_from_stock(id_stock, id_user){
   await User_Stock.destroy({where:{StockId: id_stock, UserId:id_user}})
 }
 
-module.exports = {create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner}
+module.exports = {create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner, get_all_stocks}
