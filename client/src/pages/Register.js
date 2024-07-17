@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import styles from '../styles/Register.module.css';
+
+import { register } from '../service/auth';
 
 function Register() {
 
@@ -14,25 +15,11 @@ function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = async (e) => {
-
+  const submit = async (e) => {
     e.preventDefault();
-		try {
-		  await axios.post('http://localhost:3001/users/register', {
-        name: name,
-				email: email,
-				password: password,
-		  },{withCredentials: true,
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},},
-      )
-      navigate("/estoque/visualizar")
-		} catch (error) {
-			alert(error.response.data.error)
-		}
-  }
+    await register({ name, email, password });
+    navigate('/login');
+  };
 
   return (
     <div className={styles.container_login}>
@@ -41,7 +28,7 @@ function Register() {
       </div>
       <div className={styles.login_right}>
         <div className={styles.wrap_login}>
-          <form className={styles.login_form} onSubmit={handleSubmit}>
+          <form className={styles.login_form} onSubmit={submit}>
             <div className={styles.wrap_input}>
               <input 
                 className={name !== '' ? `${styles.has_val} ${styles.input}` : styles.input}

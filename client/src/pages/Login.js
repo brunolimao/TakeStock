@@ -1,37 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 import styles from '../styles/Login.module.css';
 
 import { useState } from 'react';
 
+import { useAuth } from '../hooks/useAuth';
+
 function Login() {
 
-  const navigate = useNavigate()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const[email, setEmail] = useState('');
-  const[password, setPassword] = useState('');
+  const { login } = useAuth();
 
-  const handleSubmit = async (e) => {
+  const navigate = useNavigate();
 
+  const submit = async (e) => {
     e.preventDefault();
-		try {
-		  await axios.post('http://localhost:3001/users/login', {
-				email: email,
-				password: password,
-		  },{withCredentials: true,
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},},
-      )
-      navigate("/estoque/visualizar")
-		} catch (error) {
-			alert(error.response.data.error)
-		}
-  }
+
+    await login({ email, password });
+    navigate('/estoque/visualizar');
+  };
 
   return (
     <div className={styles.container_login}>
@@ -40,7 +31,7 @@ function Login() {
       </div>
       <div className={styles.login_right}>
         <div className={styles.wrap_login}>
-          <form className={styles.login_form} onSubmit={handleSubmit}>
+          <form className={styles.login_form} onSubmit={submit}>
 
             <div className={styles.wrap_input}>
               <input 
@@ -64,7 +55,7 @@ function Login() {
             </div>
 
             <div className={styles.container_login_form_btn}>
-              <button className={styles.login_form_btn}>Login</button>
+              <button type="submit" className={styles.login_form_btn}>Login</button>
             </div>
 
             <div className={styles.text_center}>

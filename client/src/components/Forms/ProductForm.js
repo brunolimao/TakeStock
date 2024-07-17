@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './styles.module.css';
 import { Button } from '../Button';
 
-export const ProductForm = function({ action, defaultValues }) {
+export const ProductForm = function({ action, defaultValues = {} }) {
 
     const [name, setName] = useState(defaultValues.name || '');
     const [description, setDescription] = useState(defaultValues.description || '');

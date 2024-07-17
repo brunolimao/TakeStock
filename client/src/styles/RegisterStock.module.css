@@ -72,7 +72,6 @@
 
 .view_container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 2rem;
     margin-left: calc(250px + 5rem);
@@ -88,6 +87,7 @@
     flex-direction: column;
     gap: 0.5rem;
     justify-content: center;
+    min-width: 300px;
 }
 
 .view_container span {

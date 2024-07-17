@@ -50,7 +50,7 @@ async function delete_user_from_stock(id_stock, id_user){
   await User_Stock.destroy({where:{StockId: id_stock, UserId:id_user}})
 }
 
-async function get_all_stock(id_user){
+async function get_all_stocks(id_user){
   
   let stocks = await Stock.findAll({
     raw: true,
@@ -69,4 +69,4 @@ async function get_all_stock(id_user){
   return stocks
 }
 
-module.exports = {create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner, get_all_stock}
+module.exports = {create_stock, delete_stock, get_stock, update_stock, get_products_from_stock, get_users_from_stock, delete_user_from_stock, get_stock_owner, get_all_stocks}
