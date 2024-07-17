@@ -26,16 +26,16 @@ function ViewStock() {
     };
 
     useEffect(() => {
-        StockService.getStocks(userId).then((res) => {
+        StockService.getStocks(userId || 2).then((res) => {
             setStocks(res.data.stocks);
         });
-    }, [userId]);
+    }, []);
 
     return (
         <MainLayout>
-            <h2>Meus estoques</h2>
+            <h2 name="title">Meus estoques</h2>
         
-            <div className={styles.view_container}>
+            <div name="stock-container" className={styles.view_container}>
                 {stocks.map((stock) => (
                     <div className={styles.view_box} div={stock.id} key={stock.id}>
                         <h3>{stock.name}</h3>

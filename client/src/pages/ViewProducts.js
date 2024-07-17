@@ -101,7 +101,7 @@ export const ViewProducts = function() {
                         Gerenciar membros
                     </Button>
                 </Link>
-                <div className={styles.members}>
+                <div className={styles.members} id="members">
                     {members.map((m) => (
                         <Avatar key={m.email}>{m.name[0].toUpperCase()}</Avatar>
                     ))}
@@ -118,7 +118,7 @@ export const ViewProducts = function() {
                 </Button>
 
                 {products.map((prod) => (
-                    <div key={prod.name} className={styles.subcontainer}>    
+                    <div key={prod.name} className={styles.subcontainer} name="prod">    
                         <div className={styles.content}>
                             <h5>{prod.name}</h5>
                             <span className={styles.category}>{prod.category}</span>

@@ -14,7 +14,7 @@ function RegisterStock() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createStock({ name, description, category });
-    // navigate('/')
+    navigate('/')
   };
   
   return (
@@ -25,6 +25,7 @@ function RegisterStock() {
           type="text" 
           className={styles.input_field} 
           placeholder="Nome" 
+          name="name"
           value={name} 
           onChange={(e) => setName(e.target.value)} 
           required 
@@ -33,6 +34,7 @@ function RegisterStock() {
           className={styles.input_field} 
           placeholder="Descrição" 
           value={description} 
+          name="description"
           onChange={(e) => setDescription(e.target.value)} 
           required 
         />
@@ -40,6 +42,7 @@ function RegisterStock() {
           type="text" 
           className={styles.input_field} 
           placeholder="Categoria" 
+          name="category"
           value={category} 
           onChange={(e) => setCategory(e.target.value)} 
           required 
