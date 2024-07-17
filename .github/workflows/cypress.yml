@@ -21,11 +21,9 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Navigate to client directory
-        run: cd client
-
       - name: Install client dependencies
         run: npm install
+        working-directory: ./client
 
       - name: Run Cypress tests
         run: npm run cypress:run
