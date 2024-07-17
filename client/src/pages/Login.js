@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import { useNavigate } from "react-router-dom";
 
 import styles from '../styles/Login.module.css';
 
@@ -57,7 +58,7 @@ function Login() {
 
             <div className={styles.text_center}>
               <span className={styles.txt1}>Novo aqui?</span>
-              <a className={styles.txt2} href="/register">Cadastre-se</a>
+              <a className={styles.txt2} href="/cadastro">Cadastre-se</a>
             </div>
 
           </form>

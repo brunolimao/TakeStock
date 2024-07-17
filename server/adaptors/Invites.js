@@ -7,7 +7,6 @@ async function create_invite(invite) {
 
 async function accept_invite(UserId, StockId) {
   const user_stock = {UserId, StockId}
-  console.log(user_stock)
   await User_Stock.create(user_stock)
   await Invite.destroy({where:{UserId, StockId}})
 }

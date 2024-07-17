@@ -38,6 +38,16 @@ router.get('/', ensureAuth, async function(req , res , next){
   }
 });
 
+router.get('/get_all_stocks', ensureAuth, async function(req , res , next){
+  try{
+    const id_user = req.user.id
+    const stocks = await get_all_stock(id_user)
+    res.send({stocks: stocks})
+  } catch(error){
+    res.send("Erro!")
+  }
+});
+
 router.post('/update', ensureAuth, async function(req , res , next){
   try{
     const stock = req.body

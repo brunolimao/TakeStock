@@ -5,6 +5,7 @@ import Register from './pages/Register.js';
 import RegiterStock from './pages/RegisterStock.js';
 import EditStock from './pages/EditStock.js';
 import ViewStock from './pages/ViewStock.js';
+import Profile from './pages/Profile.js';
 
 import "./index.css";
 import ViewProducts from './pages/ViewProducts.js';
@@ -17,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Register />} />
+          <Route path="/perfil" element={<Profile/>}/>
+          
           <Route path="/home" element={<Login />} />
           <Route path="/" element={<Login />} />
           

@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-
 import styles from '../styles/RegisterStock.module.css';
 import { MainLayout } from '../layouts/main';
 import { createStock } from '../service/stocks';
+import { useNavigate } from "react-router-dom";
 
 function RegisterStock() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createStock({ name, description, category });
+    await createStock({ name, description, category });
+    // navigate('/')
   };
   
   return (

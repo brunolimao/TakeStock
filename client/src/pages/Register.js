@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
+import { useNavigate } from "react-router-dom";
 
 import styles from '../styles/Register.module.css';
 
 import { register } from '../service/auth';
 
 function Register() {
+
+  const navigate = useNavigate()
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,6 +18,7 @@ function Register() {
   const submit = async (e) => {
     e.preventDefault();
     await register({ name, email, password });
+    navigate('/estoque/visualizar');
   };
 
   return (
@@ -72,7 +76,11 @@ function Register() {
             <div className={styles.container_login_form_btn}>
               <button className={styles.login_form_btn}>Cadastrar</button>
             </div>
-
+            <div className={styles.text_center}>
+              <span className={styles.txt3}>Já possui cadastro?</span>
+              <a className={styles.txt4} href="/login">Fazer Login</a>
+            </div>
+            
           </form>
         </div>
       </div>

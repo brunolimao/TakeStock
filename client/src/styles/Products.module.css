@@ -49,6 +49,7 @@
     justify-content: space-evenly;
     gap: 2rem;
     margin-top: 1rem;
+    font-size: small;
 }
 
 .members {

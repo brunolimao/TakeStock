@@ -29,7 +29,7 @@ export const MainLayout = function({ children, currentHref }) {
 
                 <div className={styles.sidebar_footer}>
                     <div className={styles.separator}></div>
-                    <a href="#profile" className={styles.menu_item}>
+                    <a href="/perfil" className={styles.menu_item}>
                         <img src={profileIcon} alt="Profile" className={styles.icon} />
                         <span>Perfil</span>
                     </a>
