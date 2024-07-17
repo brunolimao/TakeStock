@@ -45,7 +45,7 @@ function ViewStock() {
                         </div>
                         <Link to={`/estoque/${stock.id}`}>
                             <Button small style={{ marginBottom: '0.5rem' }}>
-                                Ver produtos
+                                Ver estoque
                             </Button>
                         </Link>
                         <div className={styles.button_section}>

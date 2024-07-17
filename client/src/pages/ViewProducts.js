@@ -26,7 +26,7 @@ export const ViewProducts = function() {
 
     const addNewProduct = async (newProduct) => {
         try {
-            await ProductService.createProduct({ ...newProduct, id: productToEdit.id });
+            await ProductService.createProduct({ ...newProduct, StockId: stockId });
             setProducts((prev) => ([...prev, newProduct]));
             setNewProductModalOpen(false);  
         } catch {
@@ -36,7 +36,7 @@ export const ViewProducts = function() {
 
     const editProduct = async (editedProduct) => {
         try {
-            await ProductService.updateProduct(editedProduct);
+            await ProductService.updateProduct({ ...editedProduct, id: productToEdit.id });
 
             const oldProductId = productToEdit.id;
             setProducts((prev) => (

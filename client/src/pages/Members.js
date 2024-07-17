@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Avatar } from '@mui/material';
 import { Button } from '../components/Button';
 import { Modal } from '../components/Modal';
@@ -8,13 +8,12 @@ import { MainLayout } from '../layouts/main';
 import styles from '../styles/Members.module.css';
 import { MemberForm } from '../components/Forms/MemberForm';
 
+import * as StockService from '../service/stocks';
+import { useParams } from 'react-router-dom';
+
 export function Members() {
-    const [members, setMembers] = useState([
-        { name: 'Ana', email: 'ana@mail.com', isAdmin: true },
-        { name: 'Bruno', email: 'bruno@mail.com', isAdmin: false },
-        { name: 'Guilherme', email: 'guilherme@mail.com', isAdmin: false },
-        { name: 'Maria', email: 'maria@mail.com', isAdmin: true },
-    ]);
+    const [members, setMembers] = useState([]);
+    const { stockId } = useParams();
 
     const [openNewMemberModal, setOpenNewMemberModal] = useState(false); 
 
@@ -22,6 +21,12 @@ export function Members() {
         setMembers((prev) => ([...prev, newMember]));
         setOpenNewMemberModal(false);
     };
+
+    useEffect(() => {
+        if (stockId) {
+            StockService.getStockMembers(stockId)
+        }
+    }, [stockId]);
 
     return (
         <MainLayout>

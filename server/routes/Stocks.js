@@ -60,7 +60,7 @@ router.delete('/delete', ensureAuth, async function(req , res , next){
 
 router.get('/users', ensureAuth, async function(req , res , next){
   try{
-    const id_stock = req.body.id
+    const id_stock = req.query.id
     const users = await get_users_from_stock(id_stock)
     res.send({users: users})
   } catch(error){
