@@ -22,7 +22,7 @@ app.use(express.urlencoded({
   extended: false,
 }));
 
-app.use(cors({credentials: true, origin: '*'}));
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 // Connection to the database
 const sequelize = require("./models/index.js")

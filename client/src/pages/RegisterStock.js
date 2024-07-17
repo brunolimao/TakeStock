@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
-
+import axios from "axios";
 import styles from '../styles/RegisterStock.module.css';
 import { MainLayout } from '../layouts/main';
+import { useNavigate } from "react-router-dom";
 
 function RegisterStock() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ name, description, category });
-  };
+    try {
+      await axios.post('http://localhost:3001/stocks/create',
+        {
+          name: name,
+          description: description,
+          category: category,
+        },
+        {withCredentials: true,
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+          },
+      },)
+      navigate("/estoque/visualizar")
+    } catch (error) {
+      alert(error.response.data.error)
+    }
+  }
   
   return (
     <MainLayout>

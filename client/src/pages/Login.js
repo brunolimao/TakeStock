@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.png';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import styles from '../styles/Login.module.css';
 
@@ -7,9 +9,29 @@ import { useState } from 'react';
 
 function Login() {
 
+  const navigate = useNavigate()
+
   const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
 
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+		try {
+		  await axios.post('http://localhost:3001/users/login', {
+				email: email,
+				password: password,
+		  },{withCredentials: true,
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},},
+      )
+      navigate("/estoque/visualizar")
+		} catch (error) {
+			alert(error.response.data.error)
+		}
+  }
 
   return (
     <div className={styles.container_login}>
@@ -18,7 +40,7 @@ function Login() {
       </div>
       <div className={styles.login_right}>
         <div className={styles.wrap_login}>
-          <form className={styles.login_form}>
+          <form className={styles.login_form} onSubmit={handleSubmit}>
 
             <div className={styles.wrap_input}>
               <input 
