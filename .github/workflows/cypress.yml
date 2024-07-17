@@ -25,8 +25,8 @@ jobs:
         run: npm install
         working-directory: ./client
 
-      - name: Start React app (ensure it's running)
-        run: npm start &
+      - name: Start React app
+        run: npm start
         background: true
         working-directory: ./client
 
