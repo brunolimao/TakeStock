@@ -25,9 +25,17 @@ jobs:
         run: npm install
         working-directory: ./client
 
+      - name: Install server dependencies
+        run: npm install
+        working-directory: ./server
+
       - name: Start React app
         run: npm start &
         working-directory: ./client
+
+      - name: Start backend app
+        run: npm start &
+        working-directory: ./server
 
       - name: Run Cypress tests
         run: npm run cypress:run
