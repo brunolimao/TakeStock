@@ -27,7 +27,6 @@ jobs:
 
       - name: Start React app
         run: npm start
-        background: true
         working-directory: ./client
 
       - name: Run Cypress tests
